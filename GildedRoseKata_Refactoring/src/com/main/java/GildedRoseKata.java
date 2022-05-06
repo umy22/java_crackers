@@ -11,13 +11,8 @@ public class GildedRoseKata {
     
     public void updateQuality() {
         for (Item item : items) {
-           
 	           updateQuality(item);
-	           
-	           if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-	            	item.sellIn = item.sellIn - 1;
-	            }
-	           checkIfExpired(item);
+	           updateSellIn(item);
         }
     }
     
@@ -42,6 +37,12 @@ public class GildedRoseKata {
         }
     }
     
+    private void updateSellIn(Item item) {
+    	 if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+         	item.sellIn = item.sellIn - 1;
+         }
+        checkIfExpired(item);
+    }
     
     private void updateQuality(Item item) {
     	 if (!item.name.equals("Aged Brie")
