@@ -37,7 +37,7 @@ public class GildedRoseKata {
                 }
             } else {
                 if (item.quality < 50) {
-                	item.quality = item.quality + 1;
+                	adjustQuality(item, 1);
                 }
             }
         }
@@ -61,23 +61,27 @@ public class GildedRoseKata {
              }
          } else {
              if (item.quality < 50) {
-             	item.quality = item.quality + 1;
+            	 adjustQuality(item, 1);
 
                  if (item.name.equals(BACKSTAGE_PASSES)) {
                      if (item.sellIn < 11) {
                          if (item.quality < 50) {
-                         	item.quality = item.quality + 1;
+                        	 adjustQuality(item, 1);
                          }
                      }
 
                      if (item.sellIn < 6) {
                          if (item.quality < 50) {
-                         	item.quality = item.quality + 1;
+                        	 adjustQuality(item, 1);
                          }
                      }
                  }
              }
          }
+    }
+    
+    private void adjustQuality(Item item,int adjustment) {
+    	item.quality = item.quality + adjustment;
     }
     
     public ArrayList<Item> getItems() {
