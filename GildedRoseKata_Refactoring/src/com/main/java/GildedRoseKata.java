@@ -1,10 +1,12 @@
 package com.main.java;
 
+import java.util.ArrayList;
+
 public class GildedRoseKata {
-
-	Item[] items;
-
-    public GildedRoseKata(Item[] items) {
+	
+    ArrayList<Item> items = new ArrayList<Item>();
+	
+    public GildedRoseKata(ArrayList<Item> items) {
         this.items = items;
         System.out.println();
     }
@@ -17,7 +19,7 @@ public class GildedRoseKata {
     }
     
    
-    private void checkIfExpired(Item item) {
+    private void updateExpiry(Item item) {
    	 if (item.sellIn < 0) {
             if (!item.name.equals("Aged Brie")) {
                 if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -40,8 +42,9 @@ public class GildedRoseKata {
     private void updateSellIn(Item item) {
     	 if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
          	item.sellIn = item.sellIn - 1;
+         	
          }
-        checkIfExpired(item);
+        updateExpiry(item);
     }
     
     private void updateQuality(Item item) {
