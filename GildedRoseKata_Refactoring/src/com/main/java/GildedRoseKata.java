@@ -3,8 +3,12 @@ package com.main.java;
 import java.util.ArrayList;
 
 public class GildedRoseKata {
+
+	public static final String AGED_BRIE = "Aged Brie";
+	public static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+	public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 	
-    ArrayList<Item> items = new ArrayList<Item>();
+	ArrayList<Item> items = new ArrayList<Item>();
 	
     public GildedRoseKata(ArrayList<Item> items) {
         this.items = items;
@@ -21,10 +25,10 @@ public class GildedRoseKata {
    
     private void updateExpiry(Item item) {
    	 if (item.sellIn < 0) {
-            if (!item.name.equals("Aged Brie")) {
-                if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (!item.name.equals(AGED_BRIE)) {
+                if (!item.name.equals(BACKSTAGE_PASSES)) {
                     if (item.quality > 0) {
-                        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                        if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                         	item.quality = item.quality - 1;
                         }
                     }
@@ -40,7 +44,7 @@ public class GildedRoseKata {
     }
     
     private void updateSellIn(Item item) {
-    	 if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+    	 if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
          	item.sellIn = item.sellIn - 1;
          	
          }
@@ -48,10 +52,10 @@ public class GildedRoseKata {
     }
     
     private void updateQuality(Item item) {
-    	 if (!item.name.equals("Aged Brie")
-                 && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+    	 if (!item.name.equals(AGED_BRIE)
+                 && !item.name.equals(BACKSTAGE_PASSES)) {
              if (item.quality > 0) {
-                 if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                 if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                  	item.quality = item.quality - 1;
                  }
              }
@@ -59,7 +63,7 @@ public class GildedRoseKata {
              if (item.quality < 50) {
              	item.quality = item.quality + 1;
 
-                 if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                 if (item.name.equals(BACKSTAGE_PASSES)) {
                      if (item.sellIn < 11) {
                          if (item.quality < 50) {
                          	item.quality = item.quality + 1;
@@ -74,5 +78,9 @@ public class GildedRoseKata {
                  }
              }
          }
+    }
+    
+    public ArrayList<Item> getItems() {
+        return items;
     }
 }
